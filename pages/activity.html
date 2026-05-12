@@ -1,0 +1,117 @@
+<div class="dynamic-section">
+    <h1 class="page-title">Вид деятельности</h1>
+    <div class="editable-text">
+        Комплексные решения в области металлообработки, поставок и технического контроля
+    </div>
+    
+    <!-- Сетка основных направлений -->
+    <div class="activity-grid">
+        
+        <div class="activity-card">
+            <div class="activity-icon">⚙️</div>
+            <h3 class="activity-title">Обработка металлов</h3>
+            <p class="activity-desc">Резка, гибка, сварка, нанесение покрытий</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">📦</div>
+            <h3 class="activity-title">Оптовая торговля металлами</h3>
+            <p class="activity-desc">Металлы и металлические руды</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">🚗</div>
+            <h3 class="activity-title">Автомобильные детали</h3>
+            <p class="activity-desc">Оптовая и розничная торговля автозапчастями</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">🧪</div>
+            <h3 class="activity-title">Испытания материалов</h3>
+            <p class="activity-desc">Физико-механические испытания, тех. контроль</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">⛽</div>
+            <h3 class="activity-title">Торговля топливом</h3>
+            <p class="activity-desc">Твёрдое, жидкое и газообразное топливо</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">🏗️</div>
+            <h3 class="activity-title">Строительные материалы</h3>
+            <p class="activity-desc">Лесоматериалы, сантехника, стройматериалы</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">🔄</div>
+            <h3 class="activity-title">Агентские услуги</h3>
+            <p class="activity-desc">Оптовая торговля по договорам и вознаграждению</p>
+        </div>
+        
+        <div class="activity-card">
+            <div class="activity-icon">🚛</div>
+            <h3 class="activity-title">Прочие автотранспортные средства</h3>
+            <p class="activity-desc">Оптовая торговля спецтехникой</p>
+        </div>
+        
+    </div>
+    
+    <!-- Разворачиваемый список всех ОКВЭД -->
+    <div class="okved-wrapper">
+        <button class="okved-toggle" id="okvedToggleBtn">
+            <span>📋</span> Полный перечень видов деятельности
+            <span class="toggle-arrow">▼</span>
+        </button>
+        <div class="okved-list" id="okvedList" style="display: none;">
+            <div class="okved-item">Торговля оптовая металлами и металлическими рудами</div>
+            <div class="okved-item">Обработка металлов и нанесение покрытий на металлы</div>
+            <div class="okved-item">Обработка металлических изделий механическая</div>
+            <div class="okved-item">Торговля оптовая прочими автотранспортными средствами</div>
+            <div class="okved-item">Торговля оптовая автомобильными деталями, узлами</div>
+            <div class="okved-item">Торговля розничная автомобильными деталями</div>
+            <div class="okved-item">Торговля оптовая топливом</div>
+            <div class="okved-item">Деятельность агентов по оптовой торговле металлами</div>
+            <div class="okved-item">Деятельность агентов по оптовой торговле</div>
+            <div class="okved-item">Деятельность агентов по оптовой торговле универсальным ассортиментом</div>
+            <div class="okved-item">Торговля оптовая прочими бытовыми товарами</div>
+            <div class="okved-item">Торговля оптовая лесоматериалами, стройматериалами</div>
+            <div class="okved-item">Испытания физико-механических свойств материалов</div>
+            <div class="okved-item">Испытания механических и электрических систем</div>
+            <div class="okved-item">Деятельность по техническому контролю и анализу</div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    (function() {
+        // Небольшая задержка, чтобы DOM полностью загрузился
+        setTimeout(function() {
+            const toggleBtn = document.getElementById('okvedToggleBtn');
+            const okvedList = document.getElementById('okvedList');
+            
+            if (toggleBtn && okvedList) {
+                // Убеждаемся, что список скрыт
+                okvedList.style.display = 'none';
+                
+                // Удаляем старые обработчики, чтобы не было дублирования
+                const newToggleBtn = toggleBtn.cloneNode(true);
+                toggleBtn.parentNode.replaceChild(newToggleBtn, toggleBtn);
+                
+                newToggleBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const arrow = newToggleBtn.querySelector('.toggle-arrow');
+                    
+                    if (okvedList.style.display === 'none') {
+                        okvedList.style.display = 'block';
+                        if (arrow) arrow.textContent = '▲';
+                    } else {
+                        okvedList.style.display = 'none';
+                        if (arrow) arrow.textContent = '▼';
+                    }
+                });
+            }
+        }, 50);
+    })();
+</script>
